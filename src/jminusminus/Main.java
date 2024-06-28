@@ -29,6 +29,13 @@ import static jminusminus.TokenKind.EOF;
  */
 public class Main {
     /**
+     * Constructs a Main object.
+     */
+    public Main() {
+        // Nothing here.
+    }
+
+    /**
      * Entry point.
      *
      * @param args the command-line arguments.
@@ -114,10 +121,10 @@ public class Main {
         }
 
         // Generate JVM code.
-        CLEmitter clEmitter = new CLEmitter(true);
-        clEmitter.destinationDir(outputDir);
-        ast.codegen(clEmitter);
-        if (clEmitter.errorHasOccurred()) {
+        CLEmitter jvmCode = new CLEmitter(true);
+        jvmCode.destinationDir(outputDir);
+        ast.codegen(jvmCode);
+        if (jvmCode.errorHasOccurred()) {
             System.err.println("Error: compilation failed!");
         }
     }
